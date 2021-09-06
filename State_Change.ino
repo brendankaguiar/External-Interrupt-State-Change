@@ -1,21 +1,3 @@
-//GGA Assignments
-String inByte;
-char Byte;
-char buff[13][12];
-float UTC = 0;//Time
-float LAT = 0; //Latitude
-char LATDir = 'I'; //Direction
-float LON = 0; //Longitude
-char LONDir = 'I'; //Direction
-unsigned int fixStatus; //Quality Indicator
-int NoSVs = 0; //Number of Satelites in use
-float HDop = 0; //Height Dilution of Precision
-float ALT = 0; //Altitude
-char ALTUnit = 'I'; //Altitude unit in meters
-float Sep = 0; //Geoid Separation
-char uSep = 'I'; //Units of Separation
-float diffAge = 0; //Age of Differential Connections
-
 //Port D Assignments LED Indicators
 //D2               (status button)
 //D3               (takeoff button)
@@ -25,13 +7,13 @@ volatile unsigned char* port_d = (unsigned char*)0x2B;
 volatile unsigned char* ddr_d = (unsigned char*)0x2A;
 volatile unsigned char* pin_d = (unsigned char*)0x29;
 unsigned char enable = 0x00;
-unsigned char prev_enable = 0x00;
+
 //--------------------Main Setup and Loop----------------------------------
 void setup() {
-  Serial.begin(9600); //Setup GPS
+  Serial.begin(9600);
   //setup_timer();
-  setup_PORTD();//For button and LED
-  setup_interrupt();  //For state changes on button presses
+  setup_PORTD();
+  setup_interrupt(); //For state changes on button presses
 }
 void loop() {
   ///delay(3000);//do work
