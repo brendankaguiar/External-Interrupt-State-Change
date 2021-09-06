@@ -150,5 +150,4 @@ void setup_interrupt()
 void setup_PORTD()
 {
   *ddr_d |= 0x30; //d5, d4 set to Output (green 5), (red 4)
-  *ddr_d &= 0xF3; //d2, d3 to input
 }
